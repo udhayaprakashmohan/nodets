@@ -1,11 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose'
 import { json } from 'body-parser';
-import { todoRouter } from './routes/todo'
+import { articleRouter } from './routes/article.routes';
 
 const app = express()
 app.use(json())
-app.use(todoRouter)
+app.use(articleRouter)
 
 mongoose.connect('mongodb+srv://udhayaprakash:udhayaprakash@devconnector.dxbj6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
  {
