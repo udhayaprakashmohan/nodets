@@ -7,11 +7,19 @@ export class ArticleService {
         articleDao = new ArticleDao();
     }
     async createArticle(body: ArticleModel) {
+        
         return await articleDao.save(body);
     }
-    async getArticle(id:string) {
-        console.log("id:",id)
-        return await articleDao.getArticle(id);
+       async getArticle(id: String) {
+        return await articleDao.getById(id);
     }
+    
+    async updateArticle(id: String, data:ArticleModel) {
+        let data1 = await articleDao.updateArticle(id, data);
+        return data1;
+    }
+    async deleteArticle(id: String) {
+        return await articleDao.findByIdAndDelete(id);
+}
 
 }

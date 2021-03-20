@@ -6,12 +6,21 @@ export class ArticleDao {
     async save(body: ArticleModel) {
         const article = new ArticleModel(body);
         const articleData = article.save();
-        console.log('STUDENT---->>>', article);
         return articleData;
-        // return await article.save();
+    }
+    async getById(id: String){
+        const article = ArticleModel.findById({_id: id});
+        return await article.findById();
+    }
+    async updateArticle(id: String, data: any){
+        await ArticleModel.findOneAndUpdate(id, data);
+        const article = ArticleModel.findById({_id: id});
+        return await article;
+    }
 
+    async findByIdAndDelete(id:String){
+        const article = ArticleModel.findOneAndDelete({_id: id});
+        return await article;
     }
-    async getArticle(id: string) {
-          const abb= await ArticleModel.findById(id);  
-    }
+
 }

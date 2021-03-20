@@ -10,5 +10,7 @@ export class ArticleRoute {
     articleRoutes(app: express.Application) {
         app.post('/post', articleController.createArticle);
         app.get('/get/:id', articleController.getArticle);
+        app.put('/update/:id', articleController.updateArticle);
+        app.delete('/delete/:id', articleController.deleteArticle);
     }
 }
