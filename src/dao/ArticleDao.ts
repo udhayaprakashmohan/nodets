@@ -8,18 +8,18 @@ export class ArticleDao {
         const articleData = article.save();
         return articleData;
     }
-    async getById(id: String){
-        const article = ArticleModel.findById({_id: id});
+    async getById(id: String) {
+        const article = ArticleModel.findById({ _id: id });
         return await article.findById();
     }
-    async updateArticle(id: String, data: any){
+    async updateArticle(id: String, data: any) {
         await ArticleModel.findOneAndUpdate(id, data);
-        const article = ArticleModel.findById({_id: id});
+        const article = ArticleModel.findById({ _id: id });
         return await article;
     }
 
-    async findByIdAndDelete(id:String){
-        const article = ArticleModel.findOneAndDelete({_id: id});
+    async findByIdAndDelete(id: String) {
+        const article = ArticleModel.findOneAndDelete({ _id: id });
         return await article;
     }
 

@@ -10,7 +10,7 @@ app.use(cors());
 app.use(bodyParser.json());
 new MongoConfig();
 app.get('/', (req, res) => {
-    res.send({status: "Success"});
+    res.send({ status: "Success" });
 });
 article.articleRoutes(app);
 app.listen(3000, () => {
