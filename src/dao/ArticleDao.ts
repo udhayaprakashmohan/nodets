@@ -3,16 +3,16 @@ import { articleSchema, ArticleModel } from '../model/ArticleModel';
 
 const ArticleModel = mongoose.model('article', articleSchema);
 export class ArticleDao {
-    async save(body: ArticleModel) {
+    async save(body: ArticleModel): Promise<ArticleModel> {
         const article = new ArticleModel(body);
         const articleData = article.save();
         return articleData;
     }
-    async getById(id: String) {
+    async getById(id: String): Promise<ArticleModel> {
         const article = ArticleModel.findById({ _id: id });
         return await article.findById();
     }
-    async updateArticle(id: String, data: any) {
+    async updateArticle(id: String, data: any): Promise<ArticleModel> {
         await ArticleModel.findOneAndUpdate(id, data);
         const article = ArticleModel.findById({ _id: id });
         return await article;

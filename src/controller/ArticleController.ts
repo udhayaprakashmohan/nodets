@@ -8,7 +8,6 @@ export class ArticleController {
     constructor() {
         articleService = new ArticleService();
     }
-
     async createArticle(req: Request, res: Response) {
 
         const article: ArticleModel = await articleService.createArticle(req.body);
@@ -45,7 +44,6 @@ export class ArticleController {
 
 
     async deleteArticle(req: Request, res: Response) {
-
         try {
             const article: ArticleModel = await articleService.deleteArticle(req.params.id);
             res.status(204).send({ data: "Deleted" });
@@ -59,7 +57,6 @@ export class ArticleController {
         }
     }
 }
-
 
 
 
