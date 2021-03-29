@@ -7,7 +7,8 @@ import { ArticleController } from './controller/ArticleController';
 import { ArticleService } from './service/ArticleService';
 import { ArticleDao } from './dao/ArticleDao';
 import { logger } from './util/logger';
-import dotenv from 'dotenv';
+
+import * as dotenv from 'dotenv';
 
 
 
@@ -18,7 +19,7 @@ export class Server {
     start(): void {
 
         const app: express.Application = express();
-       dotenv.config();
+        dotenv.config();
         app.use(cors());
         app.use(bodyParser.json());
         new MongoConfig();
@@ -31,6 +32,13 @@ export class Server {
         });
     }
 }
+
+
+// const articleDao = new ArticleDao();
+// const articleService = new ArticleService(articleDao,new Response());
+// const articleController = new ArticleController(articleService);
+// const server = new Server(article)
+
 
 new Server(new ArticleRoute(new ArticleController(new ArticleService(new ArticleDao()))));
 

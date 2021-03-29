@@ -9,5 +9,5 @@ export class MongoConfig {
             console.log('Err on DB connection');
         });
     }
-    }
+}
 }

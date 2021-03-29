@@ -1,4 +1,5 @@
 import * as jwt from "jsonwebtoken"
+import { Request, Response,NextFunction } from 'express';
 
 
 export class ArticleJwt {
@@ -10,16 +11,19 @@ export class ArticleJwt {
       return token;
    }
 
-   async verifyToken(req: any): Promise<any> {
-      const token = req.headers['auth'];
+   async authenticateToken(req: Request, res: Response, next: NextFunction): Promise<any> {
+      const token:any = req.headers['auth'];
       if (!token)
-         return { auth: false, message: 'No token provided.', status: 401 };
+           res.status(401).send({ auth:false,message: 'No token provided.' });
 
-      return jwt.verify(token, 'webtoken', (err: any, decoded: any) => {
+      return jwt.verify( token,'webtoken', (err: any, decoded: any) => {
          if (err) {
-            return { auth: false, message: 'Failed to authenticate token.', status: 500 };
+           res.status(500).send ({ auth: false, message: 'Failed to authenticate token.' });
          }
-         return { auth: true, decoded: decoded, status: 200 };
+         else
+          res.status(200).send({ auth: true, decoded: decoded });
+         next();
       });
+   
    }
 }
