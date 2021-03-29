@@ -12,7 +12,7 @@ export class ArticleDao {
     }
     async getById(id: String): Promise<ArticleModel> {
         const article = ArticleModel.findById({ _id: id });
-        return await article.findById();
+        return await article;
     }
     async getAllArticle(): Promise<ArticleModel> {
         const article = ArticleModel.find();
@@ -25,7 +25,7 @@ export class ArticleDao {
         return await article;
     }
 
-    async findByIdAndDelete(id: String) {
+    async deleteArticle(id: String) {
         const article = ArticleModel.findOneAndDelete({ _id: id });
         return await article;
     }

@@ -22,7 +22,7 @@ export class ArticleService {
         return dataArticle;
     }
     async deleteArticle(id: String) {
-        return await this.articleDao.findByIdAndDelete(id);
+        return await this.articleDao.deleteArticle(id);
     }
 
 }

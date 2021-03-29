@@ -1,21 +1,35 @@
 import { Request, Response } from 'express';
 import { ArticleService } from '../service/ArticleService';
 import { ArticleModel } from '../model/ArticleModel';
+//import * as jwt from "jsonwebtoken"
+import { ArticleJwt } from '../jwtToken/jwtTokens';
+import {logger} from '../util/logger';
 
 
 export class ArticleController {
+    jwt = new ArticleJwt();
     constructor(private articleService: ArticleService) {
     }
     async createArticle(req: Request, res: Response): Promise<void> {
-
+         
         const article: ArticleModel = await this.articleService.createArticle(req.body);
-        res.status(200).send(article);
+        logger.info('post controller',article)
+        const model = { article, token: await this.jwt.jwts() }
+        res.status(200).json(model);
     }
 
     async getArticle(req: Request, res: Response): Promise<void> {
         try {
-            const article: ArticleModel = await this.articleService.getArticle(req.params.id);
-            res.status(200).send(article);
+            const details = await this.jwt.verifyToken(req)
+            if (details.auth == true) {
+                const article: ArticleModel = await this.articleService.getArticle(req.params.id);
+                res.status(200).send(article);
+                console.log("controller", article)
+            }
+            else {
+                res.status(details.status).send(details)
+            }
+
         } catch (err) {
 
             if (err && err._message && err._message === 'validation failed') {
@@ -28,10 +42,20 @@ export class ArticleController {
 
     async getAllArticle(req: Request, res: Response): Promise<void> {
         try {
-            const article: ArticleModel = await this.articleService.getAllArticle();
 
-            console.log()
-            res.status(200).send(article);
+            const details = await this.jwt.verifyToken(req)
+            console.log('try calling', details.auth)
+            if (details.auth == true) {
+                console.log("calling")
+                const article: ArticleModel = await this.articleService.getAllArticle();
+                console.log("controller", article)
+                res.status(200).send(article);
+            }
+            else {
+                console.log('else response')
+                res.status(details.status).send(details)
+            }
+
         } catch (err) {
 
             if (err && err._message && err._message === 'validation failed') {

@@ -1,0 +1,47 @@
+info: App is listening on port 3000!
+info: App is listening on port 3000!
+info: post Route calling
+info: post controller
+[&{info.timestamp}] &{info.level} &{ info.message}
+[&{info.timestamp}] &{info.level} &{ info.message}
+[&{info.timestamp}] &{info.level} &{ info.message}
+[&{info.timestamp}] &{info.level} &{ info.message}
+[&{info.timestamp}] &{info.level} &{ info.message}
+[&{info.timestamp}] &{info.level} &{ info.message}
+info: App is listening on port 3000!
+info: post Route calling
+info: post controller
+info: App is listening on port 3000!
+{"message":"App is listening on port 3000!","level":"info"}
+info: App is listening on port 3000!
+info: post Route calling
+info: post controller
+info: App is listening on port 3000!
+info: post Route calling
+info: post controller
+info: App is listening on port 3000!
+info: post Route calling
+info: post controller {"$__":{"strictMode":true,"inserting":true,"getters":{},"_id":"605dd570f5a6df60505e2c7f","wasPopulated":false,"activePaths":{"paths":{"description":"require","title":"require","id":"require","lastName":"require","firstName":"require"},"states":{"ignore":{},"default":{},"init":{},"modify":{},"require":{"description":true,"title":true,"id":true,"lastName":true,"firstName":true}},"stateNames":["require","modify","init","default","ignore"]},"pathsToScopes":{},"cachedRequired":{},"session":null,"$setCalled":{},"emitter":{"domain":null,"_events":{},"_eventsCount":0,"_maxListeners":0},"$options":{"defaults":true},"validating":null,"backup":{"activePaths":{"modify":{"firstName":true,"lastName":true,"id":true,"title":true,"description":true},"default":{"_id":true,"createdAt":true,"updatedAt":true}}},"savedState":{}},"isNew":false,"$locals":{},"$op":null,"_doc":{"_id":"605dd570f5a6df60505e2c7f","firstName":"udhaya","lastName":"prakash","id":4,"title":"article","description":"article here","createdAt":"2021-03-26T12:37:04.490Z","updatedAt":"2021-03-26T12:37:04.491Z","__v":0}}
+{"message":"App is listening on port 3000!","level":"info"}
+{"message":"post Route calling","level":"info"}
+{"$__":{"strictMode":true,"inserting":true,"getters":{},"_id":"605dd65ea9b3a160f9742cf0","wasPopulated":false,"activePaths":{"paths":{"description":"require","title":"require","id":"require","lastName":"require","firstName":"require"},"states":{"ignore":{},"default":{},"init":{},"modify":{},"require":{"description":true,"title":true,"id":true,"lastName":true,"firstName":true}},"stateNames":["require","modify","init","default","ignore"]},"pathsToScopes":{},"cachedRequired":{},"session":null,"$setCalled":{},"emitter":{"domain":null,"_events":{},"_eventsCount":0,"_maxListeners":0},"$options":{"defaults":true},"validating":null,"backup":{"activePaths":{"modify":{"firstName":true,"lastName":true,"id":true,"title":true,"description":true},"default":{"_id":true,"createdAt":true,"updatedAt":true}}},"savedState":{}},"isNew":false,"$locals":{},"$op":null,"_doc":{"_id":"605dd65ea9b3a160f9742cf0","firstName":"udhaya","lastName":"prakash","id":4,"title":"article","description":"article here","createdAt":"2021-03-26T12:41:02.813Z","updatedAt":"2021-03-26T12:41:02.813Z","__v":0},"level":"info","message":"post controller"}
+undefined info: App is listening on port 3000!
+undefined info: post Route calling
+undefined info: post controller
+undefined
+undefined
+undefined
+2021-03-26T12:56:27.465Z
+2021-03-26T12:56:33.408Z
+2021-03-26T12:56:33.439Z
+2021-03-26T12:57:29.251Z  info: App is listening on port 3000!
+2021-03-26T12:57:50.568Z  info: post Route calling
+2021-03-26T12:57:50.601Z  info: post controller
+2021-03-26T12:58:56.158Z  info: App is listening on port 3000!
+2021-03-26T12:59:07.749Z  info: post Route calling
+2021-03-26T12:59:07.779Z  info: post controller
+2021-03-26T13:07:12.315Z  info: App is listening on port 3000!
+2021-03-26T13:07:56.810Z  info App is listening on port 3000!
+2021-03-29T06:21:36.903Z  info App is listening on port 3000!
+2021-03-29T06:22:38.814Z  info post Route calling
+2021-03-29T06:25:28.493Z  info App is listening on port 3000!
