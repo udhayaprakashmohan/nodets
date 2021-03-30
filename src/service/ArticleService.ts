@@ -1,4 +1,4 @@
-import { ArticleDao } from '../dao/ArticleDao';
+import { ArticleDao } from '../dao/articleDao';
 import { ArticleModel } from '../model/ArticleModel';
 
 

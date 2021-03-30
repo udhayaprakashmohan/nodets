@@ -1,45 +1,40 @@
 import cors from 'cors';
 import express from 'express';
-import { MongoConfig } from './config/MongoConfig'
-import { ArticleRoute } from './routes/ArticleRoute';
+import { MongoConfig } from './config/mongoConfig'
+import { ArticleRoute } from './routes/articleRoute';
 import bodyParser from 'body-parser';
-import { ArticleController } from './controller/ArticleController';
+import { ArticleController } from './controller/articleController';
 import { ArticleService } from './service/ArticleService';
-import { ArticleDao } from './dao/ArticleDao';
+import { ArticleDao } from './dao/articleDao';
 import { logger } from './util/logger';
-
+import { ArticleJwt } from './jwtToken/jwtTokens';
+import { info } from './util/const';
 import * as dotenv from 'dotenv';
 
-
+dotenv.config({ path: __dirname + '/.env' });
 
 export class Server {
     constructor(private article: ArticleRoute) {
         this.start();
     }
     start(): void {
-
         const app: express.Application = express();
-        dotenv.config();
         app.use(cors());
         app.use(bodyParser.json());
         new MongoConfig();
-        app.get('/', (req, res) => {
-            res.send({ status: "Success" });
-        });
         this.article.articleRoutes(app);
-        app.listen(3000, () => {
-            logger.info('App is listening on port 3000!');
+        app.listen(process.env.PORT, () => {
+            logger.info(info);
         });
     }
 }
 
+const articleDao = new ArticleDao();
+const articleService = new ArticleService(articleDao);
+const articleController = new ArticleController(articleService, new ArticleJwt());
+const article = new ArticleRoute(articleController, new ArticleJwt());
+new Server(article);
 
-// const articleDao = new ArticleDao();
-// const articleService = new ArticleService(articleDao,new Response());
-// const articleController = new ArticleController(articleService);
-// const server = new Server(article)
 
-
-new Server(new ArticleRoute(new ArticleController(new ArticleService(new ArticleDao()))));
 
 
