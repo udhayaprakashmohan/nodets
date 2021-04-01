@@ -79,7 +79,7 @@ export class ArticleController {
         try {
             logger.info(CONTROLLER_METHOD.CONTROLLER_DELETE + CONTROLLER_MESSAGE.INFO_DELETE)
             const article: ArticleModel = await this.articleService.deleteArticle(req.params.id);
-            res.status(204).send({ data: "Deleted" });
+            res.status(200).send({ data: "Deleted" });
         } catch (err) {
             logger.error(CONTROLLER_METHOD.CONTROLLER_DELETE + CONTROLLER_MESSAGE.ERROR_DELETE + err)
             if (err && err._message && err._message === 'validation failed') {

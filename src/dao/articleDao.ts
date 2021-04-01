@@ -21,7 +21,7 @@ export class ArticleDao {
 
     async updateArticle(id: String, data: any): Promise<ArticleModel> {
         await ArticleModel.findOneAndUpdate(id, data);
-        const article = ArticleModel.findById({ _id: id });
+        const article = ArticleModel.findById({ _id: id});
         return await article;
     }
 
